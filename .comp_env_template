@@ -1,0 +1,9 @@
+# This file defines the environment variable needed to run the project.
+# .network_env_template is an example file, do not modify it.
+# .network_env can be modified to adapt to your environment.
+
+# Serving configuration.
+export COMP_PORT='8001'
+
+# DB config.
+export POSTGRES_DB_NAME='comp_db'

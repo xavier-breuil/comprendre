@@ -1,0 +1,4 @@
+virtual_env
+.comp_env
+*.pyc
+**/__pycache__
