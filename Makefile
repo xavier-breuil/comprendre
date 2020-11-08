@@ -40,15 +40,16 @@ migrations: virtualenv
 showmigrations: virtualenv
 	$(VENV) && $(PYTHON) $(APP_PATH)/manage.py showmigrations
 
-createsuperuser: virtualenv
-	$(VENV) && $(PYTHON) $(APP_PATH)/manage.py createsuperuser
-
-shell: virtualenv
-	$(VENV) && $(PYTHON) $(APP_PATH)/manage.py shell
-
 ### Shortcuts ###
 clean:
 	find . -name '*.pyc' -delete
 
 serve_django: virtualenv
 	$(VENV) && $(PYTHON) $(APP_PATH)/manage.py runserver $$COMP_PORT
+
+createsuperuser: virtualenv
+	$(VENV) && $(PYTHON) $(APP_PATH)/manage.py createsuperuser
+
+shell: virtualenv
+	$(VENV) && $(PYTHON) $(APP_PATH)/manage.py shell
+
