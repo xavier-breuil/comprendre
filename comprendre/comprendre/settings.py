@@ -135,3 +135,7 @@ AUTH_USER_MODEL = 'users.User'
 
 # Use nose to run all tests.
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+NOSE_ARGS = [
+    '--with-coverage',
+    '--cover-package=comprendre.users',
+]
