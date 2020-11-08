@@ -53,3 +53,13 @@ createsuperuser: virtualenv
 shell: virtualenv
 	$(VENV) && $(PYTHON) $(APP_PATH)/manage.py shell
 
+### Tests ###
+TEST_CMD = $(PYTHON) $(APP_PATH)/manage.py test
+
+# Launch tests.
+test:
+	$(VENV) && $(TEST_CMD) comprendre.users
+
+# Launch a specific test.
+test_unique:
+	$(VENV) && $(TEST_CMD) -x -s comprendre/comprendre/users/tests/test_model.py:UserModelTestCase.test_user_create

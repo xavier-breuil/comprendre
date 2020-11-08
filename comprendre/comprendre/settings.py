@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # Third party
+    'django_nose',
+
     # Custom Apps
     'comprendre.users',
 ]
@@ -129,3 +132,6 @@ STATIC_URL = '/static/'
 
 # Custom User model
 AUTH_USER_MODEL = 'users.User'
+
+# Use nose to run all tests.
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
