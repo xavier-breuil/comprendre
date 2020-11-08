@@ -2,9 +2,10 @@
 
 ## Prerequisites
 
-- GNU Make.
+- GNU Make
 - Python 3
-- Virtualenv 20.0 or above.
+- Virtualenv 20.0 or above
+- Postgresql 12 or above
 
 ## Install
 
@@ -12,6 +13,14 @@
     cd comprendre
     make install
 
-## Serve
+## shortucs
 
     make serve
+
+    make createsuperuser
+
+    make migrations
+
+    make migrate
+
+    make showmigrations

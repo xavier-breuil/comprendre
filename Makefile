@@ -40,15 +40,32 @@ migrations: virtualenv
 showmigrations: virtualenv
 	$(VENV) && $(PYTHON) $(APP_PATH)/manage.py showmigrations
 
-createsuperuser: virtualenv
-	$(VENV) && $(PYTHON) $(APP_PATH)/manage.py createsuperuser
-
-shell: virtualenv
-	$(VENV) && $(PYTHON) $(APP_PATH)/manage.py shell
-
 ### Shortcuts ###
 clean:
 	find . -name '*.pyc' -delete
 
 serve_django: virtualenv
 	$(VENV) && $(PYTHON) $(APP_PATH)/manage.py runserver $$COMP_PORT
+
+createsuperuser: virtualenv
+	$(VENV) && $(PYTHON) $(APP_PATH)/manage.py createsuperuser
+
+shell: virtualenv
+	$(VENV) && $(PYTHON) $(APP_PATH)/manage.py shell
+
+### Tests ###
+TEST_CMD = $(PYTHON) $(APP_PATH)/manage.py test
+
+# Launch tests.
+test:
+	$(VENV) && $(TEST_CMD) comprendre.users
+
+# Launch a specific test.
+test_unique:
+	$(VENV) && $(TEST_CMD) -x -s comprendre/comprendre/users/tests/test_model.py:UserModelTestCase.test_superuser_create
+
+### Code linting. ###
+PYLINT := pylint --load-plugins pylint_django $(APP_PATH)/comprendre/users
+
+pylint: virtualenv
+	$(VENV) && $(PYLINT)
