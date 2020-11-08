@@ -63,3 +63,9 @@ test:
 # Launch a specific test.
 test_unique:
 	$(VENV) && $(TEST_CMD) -x -s comprendre/comprendre/users/tests/test_model.py:UserModelTestCase.test_user_create
+
+### Code linting. ###
+PYLINT := pylint --load-plugins pylint_django $(APP_PATH)/comprendre/users
+
+pylint: virtualenv
+	$(VENV) && $(PYLINT)
