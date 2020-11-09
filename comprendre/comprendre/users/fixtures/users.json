@@ -1,0 +1,24 @@
+[
+  {"model": "users.user",
+   "pk": 1,
+   "fields": {
+     "password": "pbkdf2_sha256$21H3Mtw+w=",
+     "last_login": "2020-11-08T11:15:47.061Z",
+     "email": "xavier@comp.com",
+     "is_staff": true,
+     "is_superuser": true,
+     "groups": [],
+     "user_permissions": []}
+  },
+  {"model": "users.user",
+   "pk": 2,
+   "fields": {
+     "password": "cbfhejkzvfsjkcfbsk21H3",
+     "last_login": "2020-11-08T11:00:00.00Z",
+     "email": "sylvain@com.com",
+     "is_staff": false,
+     "is_superuser": false,
+     "groups": [],
+     "user_permissions": []}
+  }
+]

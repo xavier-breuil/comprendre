@@ -7,7 +7,7 @@ from comprendre.meetings.models import Conference
 from comprendre.meetings.v1.serializers import ConferenceSerializerV1
 
 
-class ConferenceViewSetV1(viewsets.ModelViewSet):
+class ConferenceViewSetV1(viewsets.ModelViewSet): # pylint: disable=too-many-ancestors
     """
     Viewset for conference objects.
     """
