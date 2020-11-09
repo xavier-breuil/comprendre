@@ -41,9 +41,11 @@ INSTALLED_APPS = [
 
     # Third party
     'django_nose',
+    'taggit',
 
     # Custom Apps
     'comprendre.users',
+    'comprendre.meetings',
 ]
 
 MIDDLEWARE = [
@@ -133,5 +135,8 @@ STATIC_URL = '/static/'
 # Custom User model
 AUTH_USER_MODEL = 'users.User'
 
-# Use nose to run all tests.
+# Use nose to run all tests
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+
+# Make tags case insensitive
+TAGGIT_CASE_INSENSITIVE = True

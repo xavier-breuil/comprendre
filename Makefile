@@ -58,14 +58,14 @@ TEST_CMD = $(PYTHON) $(APP_PATH)/manage.py test
 
 # Launch tests.
 test:
-	$(VENV) && $(TEST_CMD) comprendre.users
+	$(VENV) && $(TEST_CMD) -s comprendre.users comprendre.meetings
 
 # Launch a specific test.
 test_unique:
-	$(VENV) && $(TEST_CMD) -x -s comprendre/comprendre/users/tests/test_model.py:UserModelTestCase.test_superuser_create
+	$(VENV) && $(TEST_CMD) -x -s comprendre/comprendre/meetings/tests/test_model.py:MeetingModelTestCase.test_conference_taggable
 
 ### Code linting. ###
-PYLINT := pylint --load-plugins pylint_django $(APP_PATH)/comprendre/users
+PYLINT := pylint --load-plugins pylint_django $(APP_PATH)/comprendre/users $(APP_PATH)/comprendre/meetings
 
 pylint: virtualenv
 	$(VENV) && $(PYLINT)
