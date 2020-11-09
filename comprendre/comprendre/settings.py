@@ -41,9 +41,14 @@ INSTALLED_APPS = [
 
     # Third party
     'django_nose',
+    'taggit',
+    'rest_framework',
+    'django_filters',
+    'drf_yasg',
 
     # Custom Apps
     'comprendre.users',
+    'comprendre.meetings',
 ]
 
 MIDDLEWARE = [
@@ -133,5 +138,23 @@ STATIC_URL = '/static/'
 # Custom User model
 AUTH_USER_MODEL = 'users.User'
 
-# Use nose to run all tests.
+
+# Use nose to run all tests
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+
+
+# Make tags case insensitive
+TAGGIT_CASE_INSENSITIVE = True
+
+
+# DRF config
+REST_FRAMEWORK = {
+    # Pagination
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 50,
+    # API versionning
+    'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.NamespaceVersioning',
+    'DEFAULT_VERSION': 'v1',
+    # Filtering
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+}

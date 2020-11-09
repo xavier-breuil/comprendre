@@ -21,7 +21,7 @@ def main():
     # Coverage needs to start before tests running.
     if IS_TESTING:
         import coverage
-        COV = coverage.coverage(source=['comprendre.users'])
+        COV = coverage.coverage(source=['comprendre.users', 'comprendre.meetings'])
         COV.erase()
         COV.start()
 

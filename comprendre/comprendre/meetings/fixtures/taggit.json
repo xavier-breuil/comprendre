@@ -1,0 +1,26 @@
+[
+  {"model": "taggit.tag",
+   "pk": 1,
+   "fields":{
+     "name": "farming",
+     "slug": "farming"}
+  },
+  {"model": "taggit.tag",
+   "pk": 2,
+   "fields": {
+     "name": "iot",
+     "slug": "iot"}
+  },
+  {"model": "taggit.tag",
+   "pk": 3,
+   "fields": {
+     "name": "network",
+     "slug": "network"}
+  },
+  {"model": "taggit.tag",
+   "pk": 4,
+   "fields": {
+     "name": "help",
+     "slug": "help"}
+  }
+]
