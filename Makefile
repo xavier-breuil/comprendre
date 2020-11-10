@@ -62,7 +62,7 @@ test:
 
 # Launch a specific test.
 test_unique:
-	$(VENV) && $(TEST_CMD) -x -s comprendre/comprendre/meetings/v1/tests/test_views.py:MeetingViewTestCase.test_conference_filtering
+	$(VENV) && $(TEST_CMD) -x -s comprendre/comprendre/meetings/v1/tests/test_views.py:MeetingViewTestCase.test_volunteering_filtering
 
 ### Code linting. ###
 PYLINT := pylint --load-plugins pylint_django $(APP_PATH)/comprendre/users $(APP_PATH)/comprendre/meetings

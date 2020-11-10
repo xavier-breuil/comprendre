@@ -1,1 +1,26 @@
-[{"model": "taggit.tag", "pk": 1, "fields": {"name": "farming", "slug": "farming"}}, {"model": "taggit.tag", "pk": 2, "fields": {"name": "iot", "slug": "iot"}}, {"model": "taggit.tag", "pk": 3, "fields": {"name": "network", "slug": "network"}}, {"model": "taggit.tag", "pk": 4, "fields": {"name": "internet", "slug": "internet"}}, {"model": "taggit.taggeditem", "pk": 1, "fields": {"tag": 1, "content_type": 11, "object_id": 1}}, {"model": "taggit.taggeditem", "pk": 2, "fields": {"tag": 2, "content_type": 11, "object_id": 2}}, {"model": "taggit.taggeditem", "pk": 3, "fields": {"tag": 3, "content_type": 11, "object_id": 2}}, {"model": "taggit.taggeditem", "pk": 4, "fields": {"tag": 4, "content_type": 11, "object_id": 2}}]
+[
+  {"model": "taggit.tag",
+   "pk": 1,
+   "fields":{
+     "name": "farming",
+     "slug": "farming"}
+  },
+  {"model": "taggit.tag",
+   "pk": 2,
+   "fields": {
+     "name": "iot",
+     "slug": "iot"}
+  },
+  {"model": "taggit.tag",
+   "pk": 3,
+   "fields": {
+     "name": "network",
+     "slug": "network"}
+  },
+  {"model": "taggit.tag",
+   "pk": 4,
+   "fields": {
+     "name": "help",
+     "slug": "help"}
+  }
+]

@@ -8,7 +8,7 @@ from django.utils.http import urlencode
 from rest_framework.test import APITestCase
 from taggit.models import Tag
 
-from comprendre.meetings.models import Conference
+from comprendre.meetings.models import Conference, Volunteering
 
 
 class MeetingViewTestCase(APITestCase):
@@ -27,6 +27,8 @@ class MeetingViewTestCase(APITestCase):
         conf_2 = Conference.objects.get(pk=2)
         conf_2.tags.add(Tag.objects.get(pk=2))
         conf_2.tags.add(Tag.objects.get(pk=3))
+        vol = Volunteering.objects.get(pk=3)
+        vol.tags.add(Tag.objects.get(pk=4))
 
     def test_conference_pagination(self):
         """
@@ -42,7 +44,6 @@ class MeetingViewTestCase(APITestCase):
         """
         Make sure conference can be filtered by tag, place and date.
         """
-        conf = Conference.objects.get(pk=2)
         filt_url = '%s?%s' % (reverse('v1:conferences-list'), urlencode({'place': 'toulouse'}))
         response = json.loads(self.client.get(filt_url).content)['results']
         self.assertTrue(len(response)==1)
@@ -57,3 +58,21 @@ class MeetingViewTestCase(APITestCase):
         response = json.loads(self.client.get(filt_url).content)['results']
         self.assertTrue(len(response)==1)
         self.assertTrue(response[0]['id']==1)
+
+    def test_volunteering_filtering(self):
+        """
+        Make sure volunteering can be filtered by tag, place and date.
+        """
+        filt_url = '%s?%s' % (reverse('v1:volunteerings-list'), urlencode({'place': 'toulouse'}))
+        response = json.loads(self.client.get(filt_url).content)['results']
+        self.assertTrue(len(response)==0)
+        filt_url = '%s?%s' % (reverse('v1:volunteerings-list'), urlencode({'tags': 'help'}))
+        response = json.loads(self.client.get(filt_url).content)['results']
+        self.assertTrue(len(response)==1)
+        self.assertTrue(response[0]['id']==3)
+        filt_url = '%s?%s' % (
+            reverse('v1:volunteerings-list'),
+            urlencode({'start_time': '2020-11-10T10:47:30Z'}))
+        response = json.loads(self.client.get(filt_url).content)['results']
+        self.assertTrue(len(response)==1)
+        self.assertTrue(response[0]['id']==3)
