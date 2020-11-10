@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'taggit',
     'rest_framework',
     'django_filters',
+    'drf_yasg',
 
     # Custom Apps
     'comprendre.users',
