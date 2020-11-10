@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django_nose',
     'taggit',
     'rest_framework',
+    'django_filters',
 
     # Custom Apps
     'comprendre.users',
@@ -153,4 +154,6 @@ REST_FRAMEWORK = {
     # API versionning
     'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.NamespaceVersioning',
     'DEFAULT_VERSION': 'v1',
+    # Filtering
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
 }

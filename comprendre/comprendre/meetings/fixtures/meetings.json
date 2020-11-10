@@ -15,5 +15,22 @@
      "sub_title": "",
      "speaker_group": [1],
      "attender_group": [2]}
+  },
+  {"model": "meetings.meeting",
+   "pk": 2,
+   "fields": {
+     "place": "toulouse",
+     "start_time": "2020-04-01T20:00:00Z",
+     "stop_time": "2020-04-01T21:00:00Z",
+     "description": "how can technology help rural people",
+     "admin": null}
+  },
+  {"model": "meetings.conference",
+   "pk": 2,
+   "fields": {
+     "title": "technology for countryside",
+     "sub_title": "",
+     "speaker_group": [2],
+     "attender_group": [1]}
   }
 ]
