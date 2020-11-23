@@ -13,6 +13,7 @@ class MeetingFilter(django_filters.FilterSet):
     Custom filters for meetings.
     """
     tags = django_filters.CharFilter(field_name='tags', method='filter_tags')
+    date = django_filters.DateFilter(field_name='start_time__date')
 
     # required signature necessits to disable pylint.
     def filter_tags(self, queryset, name, value): # pylint: disable=unused-argument, no-self-use
@@ -32,7 +33,7 @@ class MeetingFilter(django_filters.FilterSet):
         Allow filtering against place, tags and start_time.
         """
         model = Meeting
-        fields = ['place', 'tags', 'start_time']
+        fields = ['place', 'tags', 'date']
 
 
 class ConferenceFilter(MeetingFilter):

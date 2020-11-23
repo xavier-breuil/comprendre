@@ -54,7 +54,7 @@ class MeetingViewTestCase(APITestCase):
         self.assertTrue(response[0]['id']==2)
         filt_url = '%s?%s' % (
             reverse('v1:conferences-list'),
-            urlencode({'start_time': '1989-07-10T10:00:00Z'}))
+            urlencode({'date': '1989-07-10'}))
         response = json.loads(self.client.get(filt_url).content)['results']
         self.assertTrue(len(response)==1)
         self.assertTrue(response[0]['id']==1)
@@ -72,7 +72,7 @@ class MeetingViewTestCase(APITestCase):
         self.assertTrue(response[0]['id']==3)
         filt_url = '%s?%s' % (
             reverse('v1:volunteerings-list'),
-            urlencode({'start_time': '2020-11-10T10:47:30Z'}))
+            urlencode({'date': '2020-11-10'}))
         response = json.loads(self.client.get(filt_url).content)['results']
         self.assertTrue(len(response)==1)
         self.assertTrue(response[0]['id']==3)
