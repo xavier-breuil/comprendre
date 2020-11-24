@@ -19,6 +19,12 @@ class Meeting(models.Model):
     tags = TaggableManager()
     admin = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True, null=True)
 
+    class Meta:
+        """
+        Meta for meetings
+        """
+        ordering = ['-start_time']
+
 
 class Conference(Meeting):
     """
